@@ -1,4 +1,4 @@
-```markdown
+
 # Backend de pedidos
 ## Pruebas con postman
 
@@ -28,5 +28,5 @@
 
 ### Imagen con tamaño personalizado (HTML)
 <img src="pt_delete_id.png" alt="Logo" width="100" height="100" />
-```
+
 by: Zahir Andrés Rodríguez Mora
