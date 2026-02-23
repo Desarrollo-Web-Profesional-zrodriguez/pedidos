@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start" : "node src/index.js",
     "lint": "eslint src",
     "prepare": "husky install",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"

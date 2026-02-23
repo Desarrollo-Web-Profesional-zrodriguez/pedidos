@@ -1,4 +1,4 @@
-import { Pedido } from "../bd/modelos/pedido";
+import { Pedido } from "../bd/modelos/pedido.js";
 
 /**
  * Función para crear un nuevo pedido en la base de datos.
