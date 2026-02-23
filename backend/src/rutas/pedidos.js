@@ -74,7 +74,7 @@ export function pedidosRoutes(app) {
     })
 
     // Eliminar un pedido por id
-    app.delete('/api/v1/pedidos/;id', async (req, res) => {
+    app.delete('/api/v1/pedidos/:id', async (req, res) => {
         try {
             const { deletedCount } = await eliminaPedido(req.params.id)
             if (deletedCount === 0) return res.sendStatus(404)
