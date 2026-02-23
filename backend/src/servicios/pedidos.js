@@ -137,5 +137,5 @@ export async function modificaPedido(
  */
 
 export async function eliminaPedido(pedidoId) {
-    return await Pedido.deleteOne({ _id: pedidoId});
+    return await Pedido.deleteOne({ _id: pedidoId})
 }
