@@ -22,6 +22,7 @@ const pedidoSchema = new Schema(
         pagado: [String],
         abono: { type: Number},
         comentario: { type: String},
+        cliente: { type: Schema.Types.ObjectId, ref:  'usuario'},
     },
     { timestamps: true},
 );
