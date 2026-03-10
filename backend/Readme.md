@@ -28,4 +28,12 @@
 ### Imagen con tamaño personalizado (HTML)
 <img src="pt_delete_id.png" alt="Logo" width="300" height="300" />
 
+### Request de usuarios con JWT
+
+### Imagen con tamaño personalizado (HTML)
+<img src="pt_sigup.png" alt="Logo" width="300" height="300" />
+
+### Imagen con tamaño personalizado (HTML)
+<img src="pt_login.png" alt="Logo" width="300" height="300" />
+
 by: Zahir Andrés Rodríguez Mora
