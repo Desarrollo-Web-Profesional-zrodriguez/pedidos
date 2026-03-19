@@ -1,3 +1,4 @@
+import { requireAuth } from '../middleware/jwt.js'
 import {
     creaPedido,
     getPedidoById,
@@ -15,7 +16,7 @@ import {
 
 export function pedidosRoutes(app) {
     // Listar pedidos con filtros opcionales
-    app.get('/api/v1/pedidos', async (req, res) => {
+    app.get('/api/v1/pedidos', requireAuth,async (req, res) => {
         const { sortBy, sortOrder, nombre, pagado } = req.query
         const opciones =  { sortBy, sortOrder}
         try {
@@ -38,7 +39,7 @@ export function pedidosRoutes(app) {
 
     // Obtener pedido por ID
 
-    app.get('/api/v1/pedidos/:id', async (req, res) => {
+    app.get('/api/v1/pedidos/:id', requireAuth,async (req, res) => {
         const { id } = req.params
         try {
             const pedido = await getPedidoById(id)
@@ -52,7 +53,7 @@ export function pedidosRoutes(app) {
 
     // Crar un nuevo pedido por ID
 
-    app.post('/api/v1/pedidos', async (req, res)=> {
+    app.post('/api/v1/pedidos', requireAuth,async (req, res)=> {
         try {
             const pedido = await creaPedido(req.body)
             return res.json(pedido)
@@ -63,7 +64,7 @@ export function pedidosRoutes(app) {
     })
 
     //Modificar un pedido existente
-    app.patch('/api/v1/pedidos/:id', async (req, res) => {
+    app.patch('/api/v1/pedidos/:id', requireAuth,async (req, res) => {
         try {
             const pedido = await modificaPedido(req.params.id, req.body)
             return res.json(pedido)
@@ -74,7 +75,7 @@ export function pedidosRoutes(app) {
     })
 
     // Eliminar un pedido por id
-    app.delete('/api/v1/pedidos/:id', async (req, res) => {
+    app.delete('/api/v1/pedidos/:id', requireAuth,async (req, res) => {
         try {
             const { deletedCount } = await eliminaPedido(req.params.id)
             if (deletedCount === 0) return res.sendStatus(404)
