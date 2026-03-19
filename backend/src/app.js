@@ -15,9 +15,6 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-// Manejar preflight requests explícitamente
-app.options('*', cors(corsOptions))
-
 // body parser
 app.use(express.json())
 
