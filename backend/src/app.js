@@ -8,7 +8,14 @@ import { usuarioRoutes } from './rutas/usuarios.js'
 // crear la aplicación Express
 const app = express()
 // configurar middlewares
-app.use(cors())
+app.use(cors({
+    origin: [
+        'https://pedidos-production-bacd.up.railway.app',
+        'http://localhost:5173'
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}))
 app.use(bodyParser.json())
 
 // Configurar rutas
