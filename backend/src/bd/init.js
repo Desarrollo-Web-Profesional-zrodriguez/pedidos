@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export function initBaseDeDatos() {
     // Usamos variables individuales que configuraremos en Railway
     const user = process.env.MONGOUSER || 'mongo';
-    const pass = process.env.MONGOPASSWORD;
+    const pass = process.env.MONGOPASSWORD || 'DQuTqLZUSasWUsfyNkcBfRjazrPzbAxd';
     const host = process.env.MONGOHOST || 'mongodb.railway.internal';
     const port = process.env.MONGOPORT || '27017';
     const dbName = 'pedidos';
