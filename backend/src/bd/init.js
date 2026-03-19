@@ -1,31 +1,23 @@
 import mongoose from "mongoose";
 
 export function initBaseDeDatos() {
-    // 1. Obtenemos la URL de Railway
-    let url = process.env.DATABASE_URL;
+    // Usamos variables individuales que configuraremos en Railway
+    const user = process.env.MONGOUSER || 'mongo';
+    const pass = process.env.MONGOPASSWORD;
+    const host = process.env.MONGOHOST || 'mongodb.railway.internal';
+    const port = process.env.MONGOPORT || '27017';
+    const dbName = 'pedidos';
 
-    // 2. Si la URL existe, vamos a "escapar" los caracteres especiales 
-    // para que el arroba (@) o los palitos (|) no rompan la conexión.
-    if (url && url.includes(':') && url.includes('@')) {
-        const protocol = url.split('://')[0];
-        const rest = url.split('://')[1];
-        const auth = rest.split('@')[0];
-        const host = rest.split('@')[1];
-        
-        const [user, password] = auth.split(':');
-        
-        // Reconstruimos la URL con la contraseña codificada
-        url = `${protocol}://${user}:${encodeURIComponent(password)}@${host}`;
-    }
+    // Construcción segura con encodeURIComponent para evitar errores de símbolos
+    const uri = `mongodb://${user}:${encodeURIComponent(pass)}@${host}:${port}/${dbName}?authSource=admin`;
 
     mongoose.connection.on("error", (error) => {
-        console.error("❌ Error de conexión a la Base de Datos: ", error);
+        console.error("❌ Error de conexión a la Base de Datos:", error.message);
     });
 
     mongoose.connection.on("open", () => {
-        console.info("✅ Exitosamente conectado a la base de datos");
+        console.info("✅ Conectado exitosamente a MongoDB (Railway)");
     });
 
-    // Iniciamos la conexión
-    return mongoose.connect(url);
+    return mongoose.connect(uri);
 }
