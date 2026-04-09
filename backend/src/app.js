@@ -3,6 +3,7 @@ import cors from 'cors'
 
 import { pedidosRoutes } from './rutas/pedidos.js'
 import { usuarioRoutes } from './rutas/usuarios.js'
+import { comentariosRoutes } from './rutas/comentarios.js'
 
 // crear la aplicación Express
 const app = express()
@@ -17,14 +18,16 @@ app.use(cors(corsOptions))
 
 // body parser
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 // Configurar rutas
 pedidosRoutes(app)
 usuarioRoutes(app)
+comentariosRoutes(app)
 
 // Ruta de prueba
 app.get('/', (req, res) => {
     res.send('Hola from Express!')
 })
 
-export { app }
+export { app }

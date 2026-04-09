@@ -8,8 +8,8 @@ import { initBaseDeDatos } from './bd/init.js'
  * Iniciar el servidor Express después de conectar a la base de datos
  */
 try {
-    await initBaseDeDatos()
-    const PORT = process.env.PORT // ||3001
+    // await initBaseDeDatos()
+    const PORT = process.env.PORT // || 3001
     app.listen(PORT)
     console.info(`Servidor Express ejecutandose sobre http://localhost:${PORT}`)
 } catch (err) {

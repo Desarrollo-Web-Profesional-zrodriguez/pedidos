@@ -36,4 +36,41 @@
 ### Imagen con tamaño personalizado (HTML)
 <img src="pt_login.png" alt="Logo" width="300" height="300" />
 
-by: Zahir Andrés Rodríguez Mora
+### Request de comentarios con Rate Limiting y Validación
+<img src="pt_comentarios.png" alt="Logo" width="300" height="300" />
+
+## Docker
+
+```bash
+docker-compose down
+docker-compose up -d --build
+```
+
+### Entregable 1
+<img src="docker_entregable1.png" alt="Logo" width="300" height="300" />
+
+### Entregable 2
+<img src="docker_entregable2.png" alt="Logo" width="300" height="300" />
+
+### Reporte
+<img src="docker_reporte.png" alt="Logo" width="300" height="300" />
+
+### Entregable 3
+<img src="docker_entregable3.png" alt="Logo" width="300" height="300" />
+
+```bash
+docker run --rm -v ${PWD}/nginx-ssl:/export alpine sh -c "apk add --no-cache openssl && openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /export/nginx.key -out /export/nginx.crt -subj '/C=MX/ST=Guanajuato/L=Dolores Hidalgo/O=UTNG/CN=localhost'"
+```
+
+### Entregable 4
+<img src="docker_entregable4.png" alt="Logo" width="300" height="300" />
+
+### Entregable 5
+<img src="docker_entregable5.png" alt="Logo" width="300" height="300" />
+
+### Entregable 6
+```bash
+for i in {1..15}; do curl -k -i -X POST https://localhost/api/v1/comentarios -H "Content-Type: application/json" -d '{"puntuacion": 5, "texto": "test"}'; echo -e "\n---"; done
+```
+<img src="docker_entregable6.png" alt="Logo" width="300" height="300" />
+by: Zahir Andrés Rodríguez Mora 
